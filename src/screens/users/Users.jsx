@@ -7,9 +7,17 @@ import Typography from '@material-ui/core/Typography';
 
 import UsersList from './UsersList'
 import { loadUsers } from '../../redux/actions/usersActions';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles(() => ({
+  paper: {
+    padding: '24px'
+  },
+}));
 
 const Users = () => {
   const dispatch = useDispatch();
+  const classes = useStyles();
 
   useEffect(() => {
     dispatch(loadUsers());
@@ -17,10 +25,10 @@ const Users = () => {
 
   return (
     <Container maxWidth="md">
-      <Box mt={4} clone>
-        <Paper >
-          <Box p={2} clone>
-            <Typography variant='h3'>Users</Typography>
+      <Box mt={6} mb={6} clone>
+        <Paper className={classes.paper}>
+          <Box pb={2.5} clone>
+            <Typography variant='h5'>Users</Typography>
           </Box>
           <UsersList />
         </Paper>
