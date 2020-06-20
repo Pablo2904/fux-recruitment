@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 
+import { loadUsers } from '../redux/actions/usersActions';
 import Users from './users';
+import UserForm from '../screens/users/UserForm'
 import TopBar from './_shared/TopBar';
 import Footer from './_shared/Footer';
 
@@ -16,8 +21,22 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
+const SingleUser = ({ match }) => {
+  const users = useSelector(state => state.users.data);
+  const user = users.find(user => {
+    return parseInt(match.params.userId) === user.id
+  })
+  return user && match.isExact ? <UserForm user={user} /> : <div>erro</div>
+
+}
+
 const App = () => {
+  const dispatch = useDispatch();
   const classes = useStyles();
+
+  useEffect(() => {
+    dispatch(loadUsers());
+  }, [dispatch]);
 
   return (
     <Router>
@@ -25,8 +44,8 @@ const App = () => {
         <TopBar />
         <Switch>
           <Route exact path='/' component={Users} />
-          <Route exact path='/new' render={()=> <div>new</div>} />
-          <Route path='/:userId' render={()=> <div>id</div>}/>
+          <Route exact path='/new' component={UserForm} />
+          <Route path={`/:userId`} component={SingleUser}/>
           <Route path='*' render={()=> <div>erro</div>} />
         </Switch>
         <Footer />
