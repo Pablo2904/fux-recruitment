@@ -9,10 +9,9 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import UsersList from './UsersList'
 
-
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   paper: {
-    padding: '24px'
+    padding: theme.spacing(12)
   },
   box: {
     display: 'flex',
@@ -23,7 +22,6 @@ const useStyles = makeStyles(() => ({
 const LinkBehavior = React.forwardRef((props, ref) => (
   <RouterLink ref={ref} to='/new' {...props} />
 ));
-
 
 const Users = () => {
   const classes = useStyles();

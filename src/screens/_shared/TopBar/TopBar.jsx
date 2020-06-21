@@ -7,16 +7,12 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import logo from '../../../images/logo.svg'
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   bar: {
-    background: '#617D8B',
-    height: '60px'
+    height: theme.spacing(30)
   },
   img: {
-    marginRight: '15.5px'
-  },
-  content: {
-    lineHeight: '28px'
+    marginRight: theme.spacing(7.75)
   }
 }));
 export default function TopBar() {
@@ -26,8 +22,8 @@ export default function TopBar() {
     <AppBar position="static" className={classes.bar}>
       <Container maxWidth="md">
         <Toolbar disableGutters>
-          <img src={logo} alt='Users app logo' className={classes.img} />
-          <Typography variant="h6" className={classes.content}>
+          <img src={logo} alt='Users app logo' className={classes.img}/>
+          <Typography variant="h5">
             Users app
           </Typography>
         </Toolbar>

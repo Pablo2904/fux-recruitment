@@ -1,11 +1,9 @@
 import { USERS } from '../constants';
 
-const usersReducer = (state = { data: [] }, action) => {
+const usersReducer = (state = [], action) => {
   switch (action.type) {
     case USERS.LOAD_SUCCESS:
-      return action.payload.data;
-    case USERS.LOAD_FAIL:
-      return action.payload;
+      return [...state, ...action.payload.data.data];
     default:
       return state;
   }

@@ -1,25 +1,19 @@
 import React from 'react';
 import Container from '@material-ui/core/Container/Container';
 import Typography from '@material-ui/core/Typography';
-
 import { makeStyles } from '@material-ui/core/styles';
 
-
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   footer: {
-    background: '#E1E4E5',
+    background: theme.palette.background.footer,
     marginTop: 'auto',
-    borderTop: '2px solid #C1C6C8'
+    borderTop: `${theme.spacing(1)}px solid ${theme.palette.divider}`
   },
   content: {
-    textAlign: 'center',
-    lineHeight: '16px',
-    color: '#607D8B',
-    fontSize: '12px',
-    letterSpacing: '2px'
+    color: theme.palette.primary.main,
   },
   container: {
-    height: '40px',
+    height: theme.spacing(20),
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -33,7 +27,7 @@ export default function Footer() {
     <div className={classes.footer}>
       <footer>
         <Container maxWidth="md" className={classes.container}>
-          <Typography variant="h6" className={classes.content} >
+          <Typography variant="h6" align='center' className={classes.content} >
             &copy; USERS APP
           </Typography>
         </Container>

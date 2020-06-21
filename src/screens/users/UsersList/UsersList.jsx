@@ -12,56 +12,47 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   item: {
-    border: '1px solid rgba(0,0,0,0.12)',
-    borderRadius: '4px',
-    padding: '16px 16px 12px',
-    marginBottom: '16px',
+    border: `${theme.spacing(0.5)}px solid ${theme.palette.divider}`,
+    borderRadius: theme.spacing(2),
+    padding: `${theme.spacing(8)}px ${theme.spacing(8)}px ${theme.spacing(6)}px`,
+    marginBottom: theme.spacing(8),
     display: 'flex',
     justifyContent: 'space-between',
 
     '&:hover': {
-      background: '#fafafa'
-    },
-
-    '&:last-child': {
-      marginBottom: 0
+      background: theme.palette.background.active
     }
   },
   image: {
-    height: '100%',
-    width: 'auto'
+    height: theme.spacing(42),
+    width: theme.spacing(51.5)
   },
   leftContent: {
     display: 'flex',
     flexDirection: 'column'
   },
-  idText: {
-    fontSize: '14px',
-    letterSpacing: '0.25px',
-    lineHeight: '20px',
-    color: 'rgba(0,0,0,0.6)'
+  name: {
+    marginBottom: theme.spacing(4)
   }
 }));
-// const LinkBehavior = React.forwardRef((props, ref) => (
-//   <RouterLink ref={ref} to={`/${props}`} {...props} />
-// ));
+
 const UsersList = () => {
-  const users = useSelector(state => state.users.data);
+  const users = useSelector(state => state.users);
   const classes = useStyles();
 
   return (
     <List p={0}>
-      {users.map(user => (
+      {users && users.map(user => (
         <Link key={`user-${user.id}`} component={RouterLink} to={`/${user.id}`} underline='none'>
           <ListItem className={classes.item}>
             <div className={classes.leftContent}>
               <ListItemText
-                className={classes.idText}
+                color='textSecondary'
                 secondary={`ID: ${user.id}`}
               />
               <ListItemText
                 primary={
-                  <Typography variant="h6">{`${user.first_name} ${user.last_name}`}</Typography>
+                  <Typography color='textPrimary' variant="h5" className={classes.name}>{`${user.first_name} ${user.last_name}`}</Typography>
                 }
                 secondary={user.email}
               />

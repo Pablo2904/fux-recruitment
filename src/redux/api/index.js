@@ -42,3 +42,18 @@ export const get = (url, query, token) => {
 
   return req.then(handleSuccess).catch(handleError);
 };
+
+export const post = (url, data, query, token) => {
+  const req = axios
+    .post(
+      encodeURI(url + (query || '')),
+      data,
+      token && {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      },
+    );
+
+  return req.then(handleSuccess).catch(handleError);
+};

@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import './index.css';
 import App from './screens/App';
 import * as serviceWorker from './serviceWorker';
@@ -20,26 +19,46 @@ const theme = createMuiTheme({
     },
     action: {
       disabled: 'rgba(0,0,0,0.38)'
+    },
+    text: {
+      primary: 'rgba(0,0,0,0.87)',
+      secondary: 'rgba(0,0,0,0.6)'
+    },
+    divider: '#C1C6C8',
+    background: {
+      header: '#617D8B',
+      footer: '#E1E4E5',
+      active: '#fafafa',
+      container: '#EEF0F1'
     }
   },
-  button: {
-    fontWeight: 500,
-    fontSize: '0.875rem',
-    lineHeight: 1,
-    letterSpacing: '0.078125rem',
-    textTransform: 'uppercase'
+  typography: {
+    h5: {
+      lineHeight: 1.16,
+      letterSpacing: '0em',
+    },
+    h6: {
+      fontSize: '0.75rem',
+      lineHeight: 1.33,
+      letterSpacing: '0.16em'
+    },
+    button: {
+      fontWeight: 600,
+      fontSize: '0.875rem',
+      letterSpacing: '0.078em',
+      textTransform: 'uppercase'
+    }
   }
 });
 
 ReactDOM.render(
-  <React.StrictMode>
+  <React.Fragment>
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-        <CssBaseline />
         <App />
       </ThemeProvider>
     </Provider>
-  </React.StrictMode>,
+  </React.Fragment>,
   document.getElementById('root')
 );
 
