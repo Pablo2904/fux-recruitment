@@ -35,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
     ...theme.mixins.flexEnd
   },
   firstButton: {
+    color: theme.palette.common.secondaryButton,
     marginRight: theme.spacing(8)
   },
   newDisbled: {
@@ -98,7 +99,6 @@ const UserForm = ({ user }) => {
           <Box pl={26} pr={12} pb={12}>
             <form autoComplete='off' onSubmit={onSubmit} onChange={onChange}>
               <TextField
-              color='textPrimary'
                 id="name"
                 label="Name"
                 fullWidth
@@ -123,7 +123,7 @@ const UserForm = ({ user }) => {
                 value={email}
               />
               <Box mt={7.5} className={classes.buttons}>
-                <Button color='primary' variant='text' className={classes.firstButton} component={LinkBehavior}>
+                <Button color='default' variant='text' className={classes.firstButton} component={LinkBehavior}>
                   cancel
                 </Button>
                 <Button color='secondary' type='submit' variant='contained' disabled={user && true} classes={{

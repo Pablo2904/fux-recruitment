@@ -3,6 +3,9 @@ import { createMuiTheme } from '@material-ui/core/styles';
 export const theme = createMuiTheme({
   spacing: 2,
   palette: {
+    common: {
+      secondaryButton: '#546E7A'
+    },
     primary: {
       main: 'rgba(0,0,0,0.87)',
     },
@@ -13,7 +16,6 @@ export const theme = createMuiTheme({
       disabled: 'rgba(0,0,0,0.38)'
     },
     text: {
-      primary: 'rgba(0,0,0,0.87)',
       secondary: 'rgba(0,0,0,0.6)'
     },
     divider: '#C1C6C8',

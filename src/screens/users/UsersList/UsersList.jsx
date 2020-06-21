@@ -50,7 +50,7 @@ const UsersList = () => {
               />
               <ListItemText
                 primary={
-                  <Typography color='textPrimary' variant="h5" className={classes.name}>{`${user.first_name} ${user.last_name}`}</Typography>
+                  <Typography variant="h5" className={classes.name}>{`${user.first_name} ${user.last_name}`}</Typography>
                 }
                 secondary={user.email}
               />
