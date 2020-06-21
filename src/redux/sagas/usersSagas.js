@@ -5,15 +5,16 @@ import { setInfo, setError } from '../actions/infoActions'
 import { get, post } from '../api'
 
 export function* handleUsersLoad(payload) {
-  try {
-    const users = yield call(get, 'https://reqres.in/api/users');
-    yield put(setUsers(users))
-  } catch (error) {
+  const { data, error } = yield call(get, 'https://reqres.in/api/users');
+
+  if (data) {
+    yield put(setUsers(data))
+  } else {
     yield put(setError(error.toString()));
   }
 }
 
-export function* handleUserLoad(payload) {
+export function* handleUserSet(payload) {
   const { data, error } = yield call(post, 'https://reqres.in/api/users', payload.payload)
 
   if (data) {
@@ -28,7 +29,7 @@ export function* usersLoad(action) {
   yield fork(handleUsersLoad, payload)
 }
 
-export function* userLoad(action) {
+export function* userSet(action) {
   const payload = yield take(USERS.LOAD_USER);
-  yield fork(handleUserLoad, payload)
+  yield fork(handleUserSet, payload)
 }

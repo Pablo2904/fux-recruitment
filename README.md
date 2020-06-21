@@ -26,4 +26,6 @@ npm start
 ```
 
 Działa, potestowane lokalnie, formularz nie ma walidacji,
-mam wraenie ze niektóre kolory są nadprogramowe, tzn nagłówek ma `#617D8B` podczas gdy cała reszta ma masę podobnego `607D8B`
+mam wraenie ze niektóre kolory są nadprogramowe, tzn nagłówek ma `#617D8B` podczas gdy cała reszta ma masę podobnego `607D8B`,
+Wydaje mi sie równie ze był błąd w funkcji `handleUsersLoad` w pliku `usersSaga`.
+Poprawiłem na podstawie dokumentacji Sagi

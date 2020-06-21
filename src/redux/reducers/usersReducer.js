@@ -3,7 +3,7 @@ import { USERS } from '../constants';
 const usersReducer = (state = [], action) => {
   switch (action.type) {
     case USERS.LOAD_SUCCESS:
-      return [...state, ...action.payload.data.data];
+      return [...state, ...action.payload.data];
     default:
       return state;
   }

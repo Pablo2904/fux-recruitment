@@ -1,10 +1,10 @@
 import { all } from 'redux-saga/effects';
 
-import { usersLoad, userLoad } from './usersSagas';
+import { usersLoad, userSet } from './usersSagas';
 
 export default function* rootSaga() {
   yield all([
     usersLoad(),
-    userLoad(),
+    userSet(),
   ])
 }

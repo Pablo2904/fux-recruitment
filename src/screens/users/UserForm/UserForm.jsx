@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom'
-
+import { Link as RouterLink, useHistory } from 'react-router-dom'
 import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box'
@@ -11,7 +10,6 @@ import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import Container from '@material-ui/core/Container'
 import { makeStyles } from '@material-ui/core/styles';
-import { Link as RouterLink } from 'react-router-dom'
 import { setUser } from '../../../redux/actions/usersActions';
 
 const LinkBehavior = React.forwardRef((props, ref) => (
