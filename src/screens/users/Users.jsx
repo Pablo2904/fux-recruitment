@@ -14,8 +14,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(12)
   },
   box: {
-    display: 'flex',
-    justifyContent: 'space-between'
+    ...theme.mixins.flexBeetwen
   }
 }));
 
@@ -32,7 +31,7 @@ const Users = () => {
         <Paper className={classes.paper}>
           <Box pb={8} className={classes.box}>
             <Typography variant='h5'>Users</Typography>
-            <Button color='primary' variant='contained' component={LinkBehavior}>
+            <Button color='secondary' variant='contained' component={LinkBehavior}>
               + add user
             </Button>
           </Box>

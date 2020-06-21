@@ -16,8 +16,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: theme.spacing(2),
     padding: `${theme.spacing(8)}px ${theme.spacing(8)}px ${theme.spacing(6)}px`,
     marginBottom: theme.spacing(8),
-    display: 'flex',
-    justifyContent: 'space-between',
+    ...theme.mixins.flexBeetwen,
 
     '&:hover': {
       background: theme.palette.background.active
@@ -28,8 +27,7 @@ const useStyles = makeStyles((theme) => ({
     width: theme.spacing(51.5)
   },
   leftContent: {
-    display: 'flex',
-    flexDirection: 'column'
+    ...theme.mixins.flexColumn
   },
   name: {
     marginBottom: theme.spacing(4)

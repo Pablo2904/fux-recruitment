@@ -19,8 +19,7 @@ const LinkBehavior = React.forwardRef((props, ref) => (
 ));
 const useStyles = makeStyles((theme) => ({
   header: {
-    display: 'flex',
-    justifyContent: 'flex-start',
+    ...theme.mixins.flexStart,
     position: 'relative'
   },
   link: {
@@ -33,8 +32,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.secondary
   },
   buttons: {
-    display: 'flex',
-    justifyContent: 'flex-end'
+    ...theme.mixins.flexEnd
   },
   firstButton: {
     marginRight: theme.spacing(8)
@@ -98,15 +96,15 @@ const UserForm = ({ user }) => {
             }
           </Box>
           <Box pl={26} pr={12} pb={12}>
-            <form autoComplete='off' onSubmit={onSubmit}>
+            <form autoComplete='off' onSubmit={onSubmit} onChange={onChange}>
               <TextField
+              color='textPrimary'
                 id="name"
                 label="Name"
                 fullWidth
                 variant="outlined"
                 margin='normal'
                 value={name}
-                onChange={onChange}
               />
               <TextField
                 id="surname"
@@ -115,7 +113,6 @@ const UserForm = ({ user }) => {
                 fullWidth
                 margin='normal'
                 value={surname}
-                onChange={onChange}
               />
               <TextField
                 id="email"
@@ -124,16 +121,15 @@ const UserForm = ({ user }) => {
                 fullWidth
                 margin='normal'
                 value={email}
-                onChange={onChange}
               />
               <Box mt={7.5} className={classes.buttons}>
                 <Button color='primary' variant='text' className={classes.firstButton} component={LinkBehavior}>
-                  CANCEL
+                  cancel
                 </Button>
                 <Button color='secondary' type='submit' variant='contained' disabled={user && true} classes={{
                   disabled: classes.newDisbled
                 }}>
-                  SUBMIT TO REVIEW
+                  submit to review
                 </Button>
               </Box>
             </form>

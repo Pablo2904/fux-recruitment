@@ -51,12 +51,14 @@ const App = () => {
     <Router>
       <div className={classes.container}>
         <TopBar />
+        <main>
         <Switch>
           <Route exact path='/' component={Users} />
           <Route exact path='/new' component={UserForm} />
           <Route path={`/:userId`} component={SingleUser}/>
           <Route path='*' render={()=> <div>Page not found</div>} />
         </Switch>
+        </main>
         <Footer />
       </div>
       <Snackbar

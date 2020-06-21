@@ -9,7 +9,8 @@ import logo from '../../../images/logo.svg'
 
 const useStyles = makeStyles((theme) => ({
   bar: {
-    height: theme.spacing(30)
+    height: theme.spacing(30),
+    background: theme.palette.background.header
   },
   img: {
     marginRight: theme.spacing(7.75)
@@ -22,7 +23,7 @@ export default function TopBar() {
     <AppBar position="static" className={classes.bar}>
       <Container maxWidth="md">
         <Toolbar disableGutters>
-          <img src={logo} alt='Users app logo' className={classes.img}/>
+          <img src={logo} alt='Users app logo' className={classes.img} />
           <Typography variant="h5">
             Users app
           </Typography>

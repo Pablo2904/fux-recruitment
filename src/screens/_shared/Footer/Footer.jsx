@@ -10,13 +10,11 @@ const useStyles = makeStyles((theme) => ({
     borderTop: `${theme.spacing(1)}px solid ${theme.palette.divider}`
   },
   content: {
-    color: theme.palette.primary.main,
+    color: theme.palette.secondary.main,
   },
   container: {
     height: theme.spacing(20),
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
+    ...theme.mixins.flexCenter
   }
 }));
 
@@ -24,14 +22,14 @@ export default function Footer() {
   const classes = useStyles();
 
   return (
-    <div className={classes.footer}>
-      <footer>
-        <Container maxWidth="md" className={classes.container}>
-          <Typography variant="h6" align='center' className={classes.content} >
-            &copy; USERS APP
-          </Typography>
-        </Container>
-      </footer>
-    </div>
+    <footer>
+      <div className={classes.footer}>
+      <Container maxWidth="md" className={classes.container}>
+        <Typography variant="h6" align='center' className={classes.content} >
+          &copy; USERS APP
+        </Typography>
+      </Container>
+      </div>
+    </footer>
   );
 }
